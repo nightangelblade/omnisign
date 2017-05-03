@@ -100,8 +100,6 @@ export default class AccountsScreen extends React.Component {
 
     var url = 'https://github.com/docusign/docusign-rest-recipes/raw/node-sdk/_sample_documents/blank.pdf';
     RNFetchBlob.fetch('GET', url, {
-        // Authorization : 'Bearer access-token...',
-        // more headers  ..
       })
 
       .then((res) => {
@@ -115,9 +113,9 @@ export default class AccountsScreen extends React.Component {
         }
 
       })
-      // Status code is not 200
+
       .catch((errorMessage, statusCode) => {
-        // error handling
+        
         alert('Failed fetching: ' + errorMessage);
       })
 
@@ -134,24 +132,7 @@ export default class AccountsScreen extends React.Component {
 
   useChooseFile(account){
 
-    // Android
-    if(Platform.OS === 'android'){
-      FilePickerManager.showFilePicker(null, (response) => {
-        console.log('Response = ', response);
-
-        if (response.didCancel) {
-          console.log('User cancelled file picker');
-        }
-        else if (response.error) {
-          console.log('FilePickerManager Error: ', response.error);
-        }
-        else {
-
-          this.fetchLocalFile(account, response.uri);
-        }
-      });
-    } else {
-      // ios
+ 
       DocumentPicker.show({
           filetype: ['public.content','public.data','public.image'],
         },(error, data) => {
@@ -164,7 +145,6 @@ export default class AccountsScreen extends React.Component {
           }
           this.fetchLocalFile(account, uri);
         });
-    }
 
   }
 
@@ -176,7 +156,7 @@ export default class AccountsScreen extends React.Component {
         this.sendEnvelope(account, base64Str);
       })
       .catch((errorMessage, statusCode) => {
-        // error handling
+
         alert('Failed fetching: ' + errorMessage);
       })
 
@@ -197,7 +177,7 @@ export default class AccountsScreen extends React.Component {
 
     var envDef = {};
     envDef.emailSubject = "We need to change this!!";
-    envDef.status = "sent"; // comment out for "draft" or "created" status (not sent)
+    envDef.status = "sent";
     envDef.recipients = {};
 
     var signers = [];
@@ -240,10 +220,8 @@ export default class AccountsScreen extends React.Component {
     Toast.show('Sending');
 
 
-    // instantiate a new EnvelopesApi object
     var envelopesApi = new docusign.EnvelopesApi();
 
-    // call the createEnvelope() API
     envelopesApi.createEnvelope(accountId, {'envelopeDefinition': envDef}, (err, envelopeInfo, response) => {
       if (err) {
         return next(err);
