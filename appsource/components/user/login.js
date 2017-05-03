@@ -136,7 +136,7 @@ export default class LoginScreen extends Reflux.Component {
         <View style={styles.container}>
           <Text style={styles.title}>eSigning on Mobile</Text>
           <Text></Text>
-          <Button color="#000000" backgroundColor="#ffc820" title="Log In" onPress={this.handleUsernamePassword} />
+          <Button color="#000000" backgroundColor="#ccffcc" title="Log In" onPress={this.handleUsernamePassword} />
           <Text></Text>
           <Text></Text>
           <Text></Text>
