@@ -98,7 +98,7 @@ export default class AccountsScreen extends React.Component {
 
   useRemoteUrlFile(account){
 
-    var url = 'https://github.com/docusign/docusign-rest-recipes/raw/node-sdk/_sample_documents/blank.pdf';
+    var url = 'https://github.com/docusign/docusign-rest-recipes/raw/node-sdk/_sample_documents/NDA.pdf';
     RNFetchBlob.fetch('GET', url, {
       })
 
