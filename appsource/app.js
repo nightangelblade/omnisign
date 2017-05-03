@@ -30,7 +30,6 @@ global.docusign = docusign;
 import InitScreen from './components/InitScreen.js';
 import HomeScreen from './components/home/home.js';
 import LoginScreen from './components/user/login.js';
-import LoginOAuthScreen from './components/user/loginOAuth';
 import LoginUsernamePasswordScreen from './components/user/loginUsernamePassword';
 import AccountsScreen from './components/accounts/accounts.js';
 import SendFormScreen from './components/home/sendForm.js';
@@ -40,7 +39,6 @@ import EmbeddedSigningScreen from './components/home/embeddedSigning.js';
 var AppNavigator = StackNavigator({
   Init: { screen: InitScreen },
   Login: { screen: LoginScreen },
-  LoginOAuth: { screen: LoginOAuthScreen },
   LoginUsernamePassword: { screen: LoginUsernamePasswordScreen },
   Home: { screen: HomeScreen },
   Accounts: { screen: AccountsScreen },
