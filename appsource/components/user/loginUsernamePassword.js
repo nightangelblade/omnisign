@@ -121,7 +121,7 @@ export default class loginUsernamePassword extends React.Component {
         <Button 
           title={this.state.trying ? "Signing In":"Sign In"}
           onPress={this.handlePress}
-          backgroundColor="#ffc820"
+          backgroundColor="#ccffcc"
           color="#000000"
         />
         
