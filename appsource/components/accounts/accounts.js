@@ -281,4 +281,39 @@ export default class AccountsScreen extends React.Component {
 
   }
 
-  
+  render() {
+    var self = this;
+
+    return (
+      <View>
+        <List>
+          {
+            this.state.accounts.map((item, i) => (
+              <ListItem
+                key={i}
+                onPress={(event) => self.handlePress(item,i,event)}
+                title={item.name}
+                subtitle={`${item.userName}: (${item.email})`}
+                leftIcon={(item.isDefault == 'true') ? {
+                  name: 'star'
+                }:{
+                  name: 'star-border'
+                }}
+                value={i}
+              />
+            ))
+          }
+        </List>
+        <ActionSheet
+          ref={o => this.ActionSheet = o}
+          title={title}
+          options={options}
+          cancelButtonIndex={CANCEL_INDEX}
+          onPress={this.handleASPress}
+        />
+      </View>
+    )
+ }
+
+}
+
