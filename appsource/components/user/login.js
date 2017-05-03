@@ -72,7 +72,7 @@ export default class LoginScreen extends Reflux.Component {
 
 
 
-    var url = 'https://github.com/docusign/docusign-rest-recipes/raw/node-sdk/_sample_documents/blank.pdf';
+    var url = 'https://bphc.hrsa.gov/archive/technicalassistance/resourcecenter/managementandfinance/samplepaymentagreementform.pdf';
 
     url = RNFetchBlob.fs.asset('blank.pdf');
     // alert(url);
@@ -88,176 +88,37 @@ export default class LoginScreen extends Reflux.Component {
 
     return;
 
-    // Android
-    if(Platform.OS === 'android'){
-      FilePickerManager.showFilePicker(null, (response) => {
-        console.log('Response = ', response);
-
-        if (response.didCancel) {
-          console.log('User cancelled file picker');
-        }
-        else if (response.error) {
-          console.log('FilePickerManager Error: ', response.error);
-        }
-        else {
-          setTimeout(() => {
-            // alert(1);
-            // alert(JSON.stringify(response));
-            // alert(response.path);
-            // alert(response.uri);
-            // this.setState({
-            //   file: response
-            // });
-            // return;
-            // response.path = response.path = "g";
-            // alert(response.uri);
-
-            // RNFetchBlob.fs.exists(response.path)
-            //   // when response status code is 200
-            //   .then((exist) => {
-            //     // the conversion is done in native code
-            //     // alert(`file ${exist ? '' : 'DOES NOT'} exist`);
-            //     alert((typeof exist) + JSON.stringify(exist));
-
-
-            //   })
-            //   // Status code is not 200
-            //   .catch((errorMessage, statusCode) => {
-            //     // error handling
-            //     alert('Failed exists: ' + errorMessage);
-            //   })
-
-
-            // return;
-
-
-              // send http request in a new thread (using native code)
-            // RNFetchBlob.fetch('GET', RNFetchBlob.wrap(response.uri), {
-            RNFetchBlob.fs.readFile(response.uri,'base64')
-            //   // Authorization : 'Bearer access-token...',
-            //   'Content-Type' : 'application/octet-stream' ,
-            //   // more headers  ..
-            // })
-            // when response status code is 200
-            .then((res) => {
-              // the conversion is done in native code
-
-              // alert('data ok');
-              // return;
-              // alert(atob(res));
-              // let base64Str = res.base64()
-              // alert(base64Str);
-              // return;
-              // // the following conversions are done in js, it's SYNC
-              // let text = res.text()
-              // let json = res.json()
-
-              var base64Str = res;
-
-              if(base64Str && base64Str.length){
-                alert('GOT IT2! ' + base64Str.length)
-                // this.sendEnvelope(account, base64Str);
-              } else {
-                alert("failed base64Str");
-              }
-
-            })
-            // Status code is not 200
-            .catch((errorMessage, statusCode) => {
-              // error handling
-              alert('Failed fetching: ' + errorMessage);
-            })
-
-          },1000);
-
-
-
-        }
-      });
-    } else {
-      // ios
-
-      // iPhone/Android
       DocumentPicker.show({
           filetype: ['public.content','public.data','public.image'],
         },(error,url) => {
           alert(url);
         });
-    }
+
 
 
     return;
 
-    //     // send http request in a new thread (using native code)
-    // // RNFetchBlob.exists(RNFetchBlob.wrap(RNFetchBlob.fs.asset('blank.pdf')))
-    // RNFetchBlob.fs.exists(RNFetchBlob.fs.asset('blank.pdf'))
-    //   // when response status code is 200
-    //   .then((exist) => {
-    //     // the conversion is done in native code
-    //     alert(`file ${exist ? '' : 'DOES NOT'} exist`);
 
-
-    //   })
-    //   // Status code is not 200
-    //   .catch((errorMessage, statusCode) => {
-    //     // error handling
-    //     alert('Failed exists: ' + errorMessage);
-    //   })
-
-
-    // // return;
-    // var PATH_TO_READ = RNFetchBlob.fs.asset('blank.pdf');
-
-    // RNFetchBlob.fs.readStream(PATH_TO_READ, 'utf8')
-    // .then((stream) => {
-    //     // alert('instream');
-    //     let data = ''
-    //     stream.open()
-    //     stream.onData((chunk) => {
-    //         data += chunk
-    //     })
-    //     stream.onEnd(() => {
-    //         console.log(data)
-    //         alert('DONE');
-    //     })
-    // })
-    // .catch((errorMessage, statusCode) => {
-    //   // error handling
-    //   alert('Failed fetching2: ' + errorMessage);
-    // })
-
-    // return;
-
-        // send http request in a new thread (using native code)
-    // RNFetchBlob.fetch('GET', RNFetchBlob.fs.asset('blank.pdf'), {
       RNFetchBlob.fs.readFile(RNFetchBlob.wrap(RNFetchBlob.fs.asset('blank.pdf')))
-        // Authorization : 'Bearer access-token...',
-        // 'Content-Type' : 'application/octet-stream' ,
-        // more headers  ..
-      // })
-      // when response status code is 200
+
       .then((res) => {
-        // the conversion is done in native code
 
         alert('data ok');
         return;
 
         let base64Str = res.base64()
-        // // the following conversions are done in js, it's SYNC
-        // let text = res.text()
-        // let json = res.json()
 
         if(base64Str && base64Str.length){
           alert('GOT IT! ' + base64Str.length)
-          // this.sendEnvelope(account, base64Str);
+
         } else {
           alert("failed base64Str");
         }
 
       })
-      // Status code is not 200
+
       .catch((errorMessage, statusCode) => {
-        // error handling
+        
         alert('Failed fetching: ' + errorMessage);
       })
 
@@ -265,7 +126,6 @@ export default class LoginScreen extends Reflux.Component {
 
   render() {
 
-    // const rootNavigator = this.props.navigation.getNavigator('root');
 
     console.log('-----LOGIN RENDER!----');
     return (
