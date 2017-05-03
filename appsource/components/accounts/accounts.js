@@ -31,9 +31,9 @@ const DocumentPicker = require('react-native').NativeModules.RNDocumentPicker;
 const CANCEL_INDEX = 0
 
 // const DESTRUCTIVE_INDEX = 4
-const options = [ 'Cancel', 'Remote URL']
+const options = [ 'Cancel', 'Medical Agreement']
 
-const title = 'Where to get File?'
+const title = 'Select Your File'
 
 export default class AccountsScreen extends React.Component {
   static navigationOptions = {
