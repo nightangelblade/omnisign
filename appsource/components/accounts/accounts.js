@@ -194,7 +194,7 @@ export default class AccountsScreen extends React.Component {
     apiClient.setBasePath(__config.esign_api_host);
 
     var envDef = {};
-    envDef.emailSubject = "DocuSign API - React Native Test";
+    envDef.emailSubject = "We need to change this!!";
     envDef.status = "sent"; // comment out for "draft" or "created" status (not sent)
     envDef.recipients = {};
 
@@ -270,10 +270,11 @@ export default class AccountsScreen extends React.Component {
 
 
         this.props.navigation.dispatch( NavigationActions.navigate({ routeName: 'EmbeddedSigning', params: {
-          url: returnUrlResponse.url,
+          url: returnUrlResponse.url, // this is the url we need to browse for pdf local view
           returnUrl: returnUrl.returnUrl
         }}) );
 
+        console.log(returnUrlResponse.url);
 
       });
 
