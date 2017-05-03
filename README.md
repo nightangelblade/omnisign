@@ -12,5 +12,5 @@
 
 ## Purpose
 
-A ‘Docusign’ extension that easily allows clients to sign forms and documents on the spot. Easily implementable for various client-facing companies and services. Makes keeping track of forms and consents easier to store and utilize. 
+A React Native mobile app powered by the Docusign eSignature API that simplifies and streamlines the in-person document signing process, allowing businesses of all sizes to be able to go paperless easier.
 
