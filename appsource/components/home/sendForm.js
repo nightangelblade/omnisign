@@ -35,8 +35,8 @@ export default class SendFormScreen extends React.Component {
     super(props);
     this.state = {
       accountId: props.navigation.state.params.accountId,
-      username: 'Nick Reed',
-      email: 'nick.reed@docusign.com'
+      username: 'Sean Wright',
+      email: 'sean.syc.wright@gmail.com'
     }
     this.handlePress = this.handlePress.bind(this);
   }
