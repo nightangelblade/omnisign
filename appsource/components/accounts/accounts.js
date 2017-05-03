@@ -1,4 +1,3 @@
-
 import React, { Component } from 'react';
 import {
   Platform,
@@ -30,7 +29,6 @@ const DocumentPicker = require('react-native').NativeModules.RNDocumentPicker;
 
 const CANCEL_INDEX = 0
 
-// const DESTRUCTIVE_INDEX = 4
 const options = [ 'Cancel', 'Medical Agreement']
 
 const title = 'Select Your File'
