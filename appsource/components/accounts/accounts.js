@@ -176,7 +176,7 @@ export default class AccountsScreen extends React.Component {
     apiClient.setBasePath(__config.esign_api_host);
 
     var envDef = {};
-    envDef.emailSubject = "We need to change this!!";
+    envDef.emailSubject = "Medical agreement signed";
     envDef.status = "sent";
     envDef.recipients = {};
 
@@ -189,8 +189,8 @@ export default class AccountsScreen extends React.Component {
     signer1.name = "RN User";
     signer1.recipientId = "1";
     signer1.clientUserId = "1";
-    signer1signHereTab.xPosition = "100";
-    signer1signHereTab.yPosition = "100";
+    signer1signHereTab.xPosition = "160";
+    signer1signHereTab.yPosition = "445";
     signer1signHereTab.documentId = "1";
     signer1signHereTab.pageNumber = "1";
 
