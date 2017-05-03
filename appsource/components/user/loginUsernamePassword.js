@@ -35,7 +35,7 @@ export default class loginUsernamePassword extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      // accountId: props.navigation.state.params.accountId,
+
       username: __config.username,
       password: __config.password,
       trying: false
@@ -44,18 +44,15 @@ export default class loginUsernamePassword extends React.Component {
   }
 
   componentDidMount(){
-    // alert(this.props.navigation.state.params.accountId);
+
   }
 
   handlePress(){
 
-    // Custom HTTP Header Authentication (do NOT use this in production, because it is all in-the-clear [Integrator Keys should be secret]!)
 
-    // initialize the api client
     var apiClient = new docusign.ApiClient();
     apiClient.setBasePath(__config.esign_api_host);
 
-    // create JSON formatted auth header
     var creds = JSON.stringify({
       Username: this.state.username,
       Password: this.state.password,
@@ -63,13 +60,10 @@ export default class loginUsernamePassword extends React.Component {
     });
     apiClient.addDefaultHeader('X-DocuSign-Authentication', creds);
 
-    // assign api client to the Configuration object
     docusign.Configuration.default.setDefaultApiClient(apiClient);
 
-    // login call available off the AuthenticationApi
     var authApi = new docusign.AuthenticationApi();
 
-    // login has some optional parameters we can set
     var loginOps = {};
     loginOps.apiPassword = 'true';
     loginOps.includeAccountIdGuid = 'true';
@@ -78,8 +72,6 @@ export default class loginUsernamePassword extends React.Component {
     this.setState({
       trying: true
     });
-    // alert(typeof DSBridge);
-    // return;
 
 
     authApi.login(loginOps, (err, loginInfo, response) => {
@@ -94,8 +86,7 @@ export default class loginUsernamePassword extends React.Component {
       }
 
       if (loginInfo) {
-        // list of user account(s)
-        // note that a given user may be a member of multiple accounts
+
         var loginAccounts = loginInfo.loginAccounts;
         console.log('LoginInformation: ' + JSON.stringify(loginAccounts));
         var loginAccount = loginAccounts[0];
@@ -103,13 +94,11 @@ export default class loginUsernamePassword extends React.Component {
         var baseUrl = loginAccount.baseUrl;
         var accountDomain = baseUrl.split("/v2");
 
-        // below code required for production, no effect in demo (same domain)
         apiClient.setBasePath(accountDomain[0]);
         docusign.Configuration.default.setDefaultApiClient(apiClient);
 
-        // alert(JSON.stringify(loginAccount));
 
-        this.props.navigation.dispatch( homeReset ); //NavigationActions.navigate({ routeName: 'Accounts'}) );
+        this.props.navigation.dispatch( homeReset );
 
       }
     });

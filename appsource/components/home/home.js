@@ -13,13 +13,6 @@ import { List, ListItem } from 'react-native-elements'
 
 import { NavigationActions } from 'react-navigation'
 
-// const loginReset = NavigationActions.reset({
-//   index: 0,
-//   actions: [
-//     NavigationActions.navigate({ routeName: 'Login'})
-//   ]
-// })
-
 export default class HomeScreen extends React.Component {
   static navigationOptions = {
     title: 'Home'
@@ -34,7 +27,7 @@ export default class HomeScreen extends React.Component {
   }
 
   componentDidMount(){
-    // alert(this.props.navigation.state.params.accountId);
+    
   }
 
   handlePress(item){

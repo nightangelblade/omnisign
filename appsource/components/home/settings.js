@@ -1,4 +1,3 @@
-
 import React, { Component } from 'react';
 import {
   ActionSheetIOS,
@@ -38,54 +37,28 @@ export default class SettingsScreen extends React.Component {
   constructor(props) {
     super(props);
     this.state = {}
-    // this.store = AuthStore;
 
   }
 
   componentDidMount(){
 
-    // this.unsubscribe = AuthStore.listen(this._onAuthChange);
 
   }
   componentWillUnmount() {
-    // this.unsubscribe();
+
   }
 
   _onAuthChange = (authDetails) => {
     console.log('--Auth change--');
     console.log('authDetails', authDetails);
-
-
-
-    // this.setState(authDetails, () => {
-
-    //   if(this.state.loggedIn){
-    //     console.log('LOGGED IN!');
-    //     console.log('PAGEPAGEPAGE should change');
-
-
-    //     // this.props.navigator.replace(global.Router.getRoute('home'));
-    //     // this.props.navigation.navigate('Home', {});
-    //     self.props.navigation.dispatch(homeReset);
-
-    //     // var redirectUrl = this.getQuery().redirect || '/';
-    //     // this.replaceWith(redirectUrl);
-    //   } else {
-    //     console.log('_onAuthChange:Failed login');
-    //   }
-    // });
     
   }
 
 
  _goToLogout = () => {
-   // // this.props.navigator.push(Router.getRoute('login'));
-   // this.props.navigator.replace(global.Router.getRoute('login'));
 
    console.log('Logout clicked');
-    // AuthActions.logout();
 
-    // this.props.navigation.dispatch(loginReset);
     this.props.navigation.navigate('Login', {});
 
  }
