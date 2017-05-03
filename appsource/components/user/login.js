@@ -47,14 +47,7 @@ export default class LoginScreen extends Reflux.Component {
   constructor(props) {
     super(props);
     this.state = {}
-    this.handleOAuth = this.handleOAuth.bind(this);
     this.handleUsernamePassword = this.handleUsernamePassword.bind(this);
-  }
-
-  handleOAuth() {
-
-    this.props.navigation.dispatch( NavigationActions.navigate({ routeName: 'LoginOAuth'}) );
-
   }
 
   handleUsernamePassword(){
@@ -282,7 +275,6 @@ export default class LoginScreen extends Reflux.Component {
         </View>
         <Text style={styles.title}>DocuSign</Text>
         <View style={styles.container}>
-          <Button title="OAuth" onPress={this.handleOAuth} />
           <Text></Text>
           <Button title="Username/Password" onPress={this.handleUsernamePassword} />
         </View>
