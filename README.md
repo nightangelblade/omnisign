@@ -1,6 +1,7 @@
 # Team SignIt
 
-
+# KISS 
+Keep It Smart Simple. Concept for seamless signing process.
 
 ## Members
 
