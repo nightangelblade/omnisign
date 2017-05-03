@@ -15,16 +15,9 @@ global.__config = require('../config.json');
 import { StackNavigator } from 'react-navigation';
 
 
-// var DocuSignBridge  = require('react-native-docusign-esign');
-// global.DSBridge = global.DocuSignBridge = DocuSignBridge;
-
-
 var docusign = require('docusign-esign-react-native');
 global.docusign = docusign;
 
-
-// Get previous info from Storage
-// - todo
 
 
 import InitScreen from './components/InitScreen.js';

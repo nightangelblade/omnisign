@@ -1,4 +1,3 @@
-
 import React, { Component } from 'react';
 import {
   ActionSheetIOS,
@@ -50,14 +49,14 @@ export default class EmbeddedSigningScreen extends React.Component {
   onNavigationStateChange(navState){
 
     if(navState.url.indexOf(this.state.returnUrl) === 0){
-      // alert('done');
+      
       this.props.navigation.dispatch( homeReset );
     }
 
   }
 
   onShouldStartLoadWithRequest(event){
-    // maybe stop some loading here?
+
     return true;
   }
 

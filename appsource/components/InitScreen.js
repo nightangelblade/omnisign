@@ -42,13 +42,10 @@ export default class InitScreen extends React.Component {
     .then(function(userid){
       console.log('=-=-=-=- userid:', userid);
       if(userid){
-        // self.props.navigator.replace(global.Router.getRoute('home'));
-        // self.props.navigation.navigate('Home', {})
 
         self.props.navigation.dispatch(homeReset);
       } else {
-        // self.props.navigator.replace(global.Router.getRoute('login'));
-        // self.props.navigation.navigate('Login', {})
+        
         self.props.navigation.dispatch(loginReset);
       }
     });

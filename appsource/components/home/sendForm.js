@@ -1,4 +1,3 @@
-
 import React, { Component } from 'react';
 import {
   ActionSheetIOS,
@@ -19,13 +18,6 @@ import { Button } from 'react-native-elements'
 import { FormLabel, FormInput, FormValidationMessage } from 'react-native-elements'
 
 
-// const loginReset = NavigationActions.reset({
-//   index: 0,
-//   actions: [
-//     NavigationActions.navigate({ routeName: 'Login'})
-//   ]
-// })
-
 export default class SendFormScreen extends React.Component {
   static navigationOptions = {
     title: 'Send Form'
@@ -42,7 +34,7 @@ export default class SendFormScreen extends React.Component {
   }
 
   componentDidMount(){
-    // alert(this.props.navigation.state.params.accountId);
+    
   }
 
   handlePress(){

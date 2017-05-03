@@ -22,16 +22,9 @@ const { width, height } = Dimensions.get("window");
 
 import { NavigationActions } from 'react-navigation'
 
-// const homeReset = NavigationActions.reset({
-//   index: 0,
-//   actions: [
-//     NavigationActions.navigate({ routeName: 'Home'})
-//   ]
-// })
 
 import RNFetchBlob from 'react-native-fetch-blob'
-// android
-const FilePickerManager = require('NativeModules').FilePickerManager;
+
 // ios
 const DocumentPicker = require('react-native').NativeModules.RNDocumentPicker;
 
@@ -58,29 +51,13 @@ export default class LoginScreen extends Reflux.Component {
 
 
 
-    // RNFetchBlob.fs.readFile(RNFetchBlob.fs.asset("blank.pdf"),'base64')
-    // .then((base64Str) => {
-    //   alert('GOT FILE');
-    //   // this.sendEnvelope(account, base64Str);
-    // })
-    // .catch((error)=>{
-    //   alert('Failed: ' + error)
-    // })
-
-
-    // return;
-
-
-
     var url = 'https://bphc.hrsa.gov/archive/technicalassistance/resourcecenter/managementandfinance/samplepaymentagreementform.pdf';
 
     url = RNFetchBlob.fs.asset('blank.pdf');
-    // alert(url);
 
 
 
-      // send http request in a new thread (using native code)
-    // RNFetchBlob.fetch('GET', RNFetchBlob.wrap(response.uri), {
+
     RNFetchBlob.fs.readFile(RNFetchBlob.fs.asset('blank.pdf'),'base64')
     .then((base64Str) => {
       this.sendEnvelope(account, base64Str);
