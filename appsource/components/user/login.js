@@ -274,11 +274,13 @@ export default class LoginScreen extends Reflux.Component {
           <Image source={require('./../../../resources/KDV8iF7koYBi4iIiEgwPvZAREREJBgDFhEREZFgDFhEREREgjFgEREREQnGgEVEREQkGAMWERERkWAMWERERESCMWARERERCcaARURERCQYAxYRERGRYAxYRERERIIxYBEREREJxoBFREREJBgDFhEREZFgDFhEREREgjFgEREREQnGgEVEREQkGAMWERERkWAMWERERESCMWARERERCcaARURERCQYAxYRERGRYAxYRERERIIxYBERERE.png')} style={styles.mark} resizeMode="contain" />
         </View>
         <View style={styles.container}>
-          <Button title="Log In" onPress={this.handleUsernamePassword} />
+          <Text style={styles.title}>eSigning on Mobile</Text>
+          <Text></Text>
+          <Button color="#000000" backgroundColor="#ffc820" title="Log In" onPress={this.handleUsernamePassword} />
           <Text></Text>
           <Text></Text>
           <Text></Text>
-          <Text style={styles.title}>Powered by DocuSign</Text>
+          <Text style={styles.subtitle}>Powered by DocuSign</Text>
         </View>
       </View>
     );
@@ -306,6 +308,10 @@ const styles = StyleSheet.create({
     height,
   },
   title: {
+    fontSize: 18,
+    textAlign: 'center'
+  },
+  subtitle: {
     fontSize: 15,
     textAlign: 'center'
   },

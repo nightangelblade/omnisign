@@ -29,7 +29,7 @@ const homeReset = NavigationActions.reset({
 
 export default class loginUsernamePassword extends React.Component {
   static navigationOptions = {
-    title: 'Login'
+    title: 'Login with DocuSign'
   }
 
   constructor(props) {
@@ -132,6 +132,8 @@ export default class loginUsernamePassword extends React.Component {
         <Button 
           title={this.state.trying ? "Signing In":"Sign In"}
           onPress={this.handlePress}
+          backgroundColor="#ffc820"
+          color="#000000"
         />
         
 
