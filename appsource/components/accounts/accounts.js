@@ -16,25 +16,20 @@ import { NavigationActions } from 'react-navigation'
 
 import Toast from 'react-native-root-toast';
 
-// const loginReset = NavigationActions.reset({
-//   index: 0,
-//   actions: [
-//     NavigationActions.navigate({ routeName: 'Login'})
-//   ]
-// })
+
 
 
 import ActionSheet from 'react-native-actionsheet'
 
 import RNFetchBlob from 'react-native-fetch-blob'
-// android
+
 const FilePickerManager = require('NativeModules').FilePickerManager;
-// ios
+
 const DocumentPicker = require('react-native').NativeModules.RNDocumentPicker;
 
 
 const CANCEL_INDEX = 0
-// const DESTRUCTIVE_INDEX = 4
+
 const options = [ 'Cancel', 'Remote URL', 'Local Asset', 'Choose File' ]
 const title = 'Where to get File?'
 
@@ -56,12 +51,9 @@ export default class AccountsScreen extends React.Component {
 
   componentDidMount(){
 
-    // Run login_information to get accounts
 
-    // login call available off the AuthenticationApi
     var authApi = new docusign.AuthenticationApi();
 
-    // login has some optional parameters we can set
     var loginOps = {};
     loginOps.api_password = 'true';
     loginOps.include_account_id_guid = 'true';
@@ -95,18 +87,8 @@ export default class AccountsScreen extends React.Component {
 
     switch(i){
       case 1:
-        // Use remote URL
+
         this.useRemoteUrlFile(this.state.account);
-        break;
-
-      case 2:
-        // Use local asset file
-        this.useAssetFile(this.state.account, 'blank.pdf');
-        break;
-
-      case 3:
-        // Choose file
-        this.useChooseFile(this.state.account);
         break;
     }
 
@@ -119,13 +101,12 @@ export default class AccountsScreen extends React.Component {
         // Authorization : 'Bearer access-token...',
         // more headers  ..
       })
-      // when response status code is 200
+
       .then((res) => {
-        // the conversion is done in native code
+
         let base64Str = res.base64();
 
         if(base64Str && base64Str.length){
-          // alert('GOT IT! ' + base64Str.length)
           this.sendEnvelope(account, base64Str);
         } else {
           alert("failed base64Str");
@@ -163,7 +144,7 @@ export default class AccountsScreen extends React.Component {
           console.log('FilePickerManager Error: ', response.error);
         }
         else {
-          // slight delay after fetching file
+
           this.fetchLocalFile(account, response.uri);
         }
       });
@@ -187,13 +168,11 @@ export default class AccountsScreen extends React.Component {
 
   fetchLocalFile(account, filePath){
 
-    // slight delay before fetching local file
     setTimeout(() => {
       RNFetchBlob.fs.readFile(filePath,'base64')
       .then((base64Str) => {
         this.sendEnvelope(account, base64Str);
       })
-      // Status code is not 200
       .catch((errorMessage, statusCode) => {
         // error handling
         alert('Failed fetching: ' + errorMessage);
@@ -205,11 +184,7 @@ export default class AccountsScreen extends React.Component {
 
   sendEnvelope(account, base64Data){
 
-    // var host = account.baseUrl.split('/v2')[0]; // remove the accountId from the baseUrl returned
-    // var accountId = account.accountId;
-    // global.accountId = accountId;
-
-    // initialize the api client
+ 
 
     var accountId = account.accountId;
     var baseUrl = account.baseUrl;
@@ -218,9 +193,6 @@ export default class AccountsScreen extends React.Component {
     var apiClient = docusign.Configuration.default.getDefaultApiClient();
     apiClient.setBasePath(__config.esign_api_host);
 
-
-    // alert(JSON.stringify(account));
-    // return;
     var envDef = {};
     envDef.emailSubject = "DocuSign API - React Native Test";
     envDef.status = "sent"; // comment out for "draft" or "created" status (not sent)
@@ -296,11 +268,6 @@ export default class AccountsScreen extends React.Component {
           return;
         }
 
-        // alert('returnUrlResponse');
-
-        // alert('Got RETURN URL: ' + JSON.stringify(returnUrlResponse));
-
-        // redirect to the embedded signing page
 
         this.props.navigation.dispatch( NavigationActions.navigate({ routeName: 'EmbeddedSigning', params: {
           url: returnUrlResponse.url,
