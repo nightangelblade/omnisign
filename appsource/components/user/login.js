@@ -274,7 +274,9 @@ export default class LoginScreen extends Reflux.Component {
           <Image source={require('./../../../resources/KDV8iF7koYBi4iIiEgwPvZAREREJBgDFhEREZFgDFhEREREgjFgEREREQnGgEVEREQkGAMWERERkWAMWERERESCMWARERERCcaARURERCQYAxYRERGRYAxYRERERIIxYBEREREJxoBFREREJBgDFhEREZFgDFhEREREgjFgEREREQnGgEVEREQkGAMWERERkWAMWERERESCMWARERERCcaARURERCQYAxYRERGRYAxYRERERIIxYBERERE.png')} style={styles.mark} resizeMode="contain" />
         </View>
         <View style={styles.container}>
-          <Button title="Username/Password" onPress={this.handleUsernamePassword} />
+          <Button title="Log In" onPress={this.handleUsernamePassword} />
+          <Text></Text>
+          <Text></Text>
           <Text></Text>
           <Text style={styles.title}>Powered by DocuSign</Text>
         </View>
@@ -288,7 +290,7 @@ const styles = StyleSheet.create({
     backgroundColor: '#fff'
   },
   container: {
-    flex: 1,
+    flex: 1
   },
   markWrap: {
     flex: 1,
@@ -304,7 +306,7 @@ const styles = StyleSheet.create({
     height,
   },
   title: {
-    fontSize: 24,
+    fontSize: 15,
     textAlign: 'center'
   },
   wrapper: {
